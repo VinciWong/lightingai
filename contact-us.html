@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us | Harmony Lighting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Menu bar ===== -->
+  <header class="site-header">
+    <a class="logo" href="index.html">
+      <img src="images/logo.png" alt="Harmony Lighting">
+    </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="main-nav" id="main-nav" aria-label="Main">
+      <ul>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="service.html">Service</a></li>
+        <li><a href="lightingai.html">LightingAI</a></li>
+        <li><a href="new-product.html">New Product</a></li>
+        <li><a href="our-team.html">Our Team</a></li>
+        <li><a href="contact-us.html" aria-current="page">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===== Hero image ===== -->
+    <div class="hero img-slot">
+      <span class="img-label">Image</span>
+      <img src="images/contactus.jpg" alt="Harmony Lighting">
+    </div>
+
+    <!-- ===== Intro ===== -->
+    <section class="page-section">
+      <h1>Contact Us</h1>
+      <p class="intro">Contact us with any questions about our products or to find a supplier in your area. Please fill out the form below and we’ll get back to you in a timely manner.</p>
+    </section>
+
+    <!-- ===== Form =====
+         To receive messages, set data-endpoint to your form service URL
+         (for example a Formspree endpoint). Without it, the form opens
+         the visitor's email app addressed to data-mailto instead. -->
+    <form class="contact-form" id="contact-form" novalidate
+          data-endpoint=""
+          data-mailto="info@example.com">
+
+      <fieldset class="field-group">
+        <legend>Name</legend>
+        <div class="name-row">
+          <div class="field">
+            <input type="text" id="first-name" name="first-name" autocomplete="given-name" required>
+            <label for="first-name">First</label>
+          </div>
+          <div class="field">
+            <input type="text" id="last-name" name="last-name" autocomplete="family-name" required>
+            <label for="last-name">Last</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="field-group">
+        <label class="group-label" for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+      </div>
+
+      <div class="field-group">
+        <label class="group-label" for="message">Message</label>
+        <textarea id="message" name="message" rows="8" required></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
+
+    <!-- ===== Contact details ===== -->
+    <section class="contact-info" aria-label="Contact details">
+      <div class="info-item">
+        <span class="info-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" fill="currentColor"/>
+            <circle cx="12" cy="10" r="3" fill="#fff" stroke="#fff"/>
+          </svg>
+        </span>
+        <h2>Address</h2>
+        <p>XXXXXXXX</p>
+      </div>
+
+      <div class="info-item">
+        <span class="info-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="M22 6 12 13 2 6"/>
+          </svg>
+        </span>
+        <h2>Email</h2>
+        <p><a href="mailto:info@example.com">XXXXXXXX</a></p>
+      </div>
+
+      <div class="info-item">
+        <span class="info-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </span>
+        <h2>Phone</h2>
+        <p><a href="tel:+000000000">XXXXXXXX</a></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

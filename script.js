@@ -38,3 +38,105 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+
+/* ---- Contact form ---- */
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contact-form");
+  if (!form) return;
+
+  const status = form.querySelector(".form-status");
+  const button = form.querySelector(".submit-btn");
+
+  const say = (text, isError = false) => {
+    status.textContent = text;
+    status.classList.toggle("is-error", isError);
+  };
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    say("");
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const data = new FormData(form);
+    const endpoint = form.dataset.endpoint;
+
+    // No form service set up yet: open the visitor's email app instead
+    if (!endpoint) {
+      const name = `${data.get("first-name")} ${data.get("last-name")}`;
+      const body = `${data.get("message")}\n\n${name}\n${data.get("email")}`;
+      window.location.href =
+        `mailto:${form.dataset.mailto}` +
+        `?subject=${encodeURIComponent("Website enquiry from " + name)}` +
+        `&body=${encodeURIComponent(body)}`;
+      return;
+    }
+
+    button.disabled = true;
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (!response.ok) throw new Error(response.statusText);
+      form.reset();
+      say("Message sent. We’ll get back to you soon.");
+    } catch (err) {
+      say("Your message wasn’t sent. Please try again or email us directly.", true);
+    } finally {
+      button.disabled = false;
+    }
+  });
+});
+
+
+/* ---- Gallery lightbox (gallery.html) ---- */
+document.addEventListener("DOMContentLoaded", () => {
+  const lightbox = document.getElementById("lightbox");
+  if (!lightbox) return; // not on this page
+
+  const lightboxImage = document.getElementById("lightbox-image");
+  const closeBtn = document.getElementById("lightbox-close");
+  const tiles = Array.from(document.querySelectorAll(".full-gallery-grid .tile"));
+  let lastFocused = null;
+
+  const open = (tile) => {
+    const img = tile.querySelector("img");
+    // Nothing to enlarge if the real photo hasn't loaded yet (still a placeholder)
+    if (!tile.classList.contains("has-image") || !img) return;
+
+    lightboxImage.src = img.src;
+    lightboxImage.alt = img.alt || "";
+    lightbox.hidden = false;
+    document.body.style.overflow = "hidden";
+    lastFocused = tile;
+    closeBtn.focus();
+  };
+
+  const close = () => {
+    lightbox.hidden = true;
+    lightboxImage.src = "";
+    document.body.style.overflow = "";
+    if (lastFocused) lastFocused.focus();
+  };
+
+  tiles.forEach((tile) => {
+    tile.addEventListener("click", () => open(tile));
+  });
+
+  closeBtn.addEventListener("click", close);
+
+  // Click outside the photo (on the dark backdrop) closes it too
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) close();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !lightbox.hidden) close();
+  });
+});

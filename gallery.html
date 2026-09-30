@@ -23,7 +23,7 @@
 
     <nav class="main-nav" id="main-nav" aria-label="Main">
       <ul>
-        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="index.html">About Us</a></li>
         <li><a href="service.html">Service</a></li>
         <li><a href="lightingai.html">LightingAI</a></li>
         <li><a href="new-product.html">New Product</a></li>
@@ -41,72 +41,82 @@
     </section>
 
     <!-- ===== Grid =====
-         Add or remove <div class="tile img-slot"> blocks and matching
-         images (gallery/1.jpg, gallery/2.jpg, ...) to change the count. -->
+         Add or remove <button class="tile img-slot"> blocks and matching
+         images (gallery/1.jpg, gallery/2.jpg, ...) to change the count.
+         Renumber the remaining data-index values (0, 1, 2, ...) if you
+         insert or remove one in the middle. -->
     <section class="full-gallery">
       <div class="full-gallery-grid">
-        <div class="tile img-slot">
+        <button type="button" class="tile img-slot" data-index="0">
           <span class="img-label">Image</span>
           <img src="images/gallery/1.jpg" alt="Lighting gallery photo 1">
-        </div>
-        <div class="tile img-slot">
+        </button>
+        <button type="button" class="tile img-slot" data-index="1">
           <span class="img-label">Image</span>
           <img src="images/gallery/2.jpg" alt="Lighting gallery photo 2">
-        </div>
-        <div class="tile img-slot">
+        </button>
+        <button type="button" class="tile img-slot" data-index="2">
           <span class="img-label">Image</span>
           <img src="images/gallery/3.jpg" alt="Lighting gallery photo 3">
-        </div>
-        <div class="tile img-slot">
+        </button>
+        <button type="button" class="tile img-slot" data-index="3">
           <span class="img-label">Image</span>
           <img src="images/gallery/4.jpg" alt="Lighting gallery photo 4">
-        </div>
-        <div class="tile img-slot">
+        </button>
+        <button type="button" class="tile img-slot" data-index="4">
           <span class="img-label">Image</span>
           <img src="images/gallery/5.jpg" alt="Lighting gallery photo 5">
-        </div>
-        <div class="tile img-slot">
+        </button>
+        <button type="button" class="tile img-slot" data-index="5">
           <span class="img-label">Image</span>
           <img src="images/gallery/6.jpg" alt="Lighting gallery photo 6">
-        </div>
-        <div class="tile img-slot">
+        </button>
+        <button type="button" class="tile img-slot" data-index="6">
           <span class="img-label">Image</span>
           <img src="images/gallery/7.jpg" alt="Lighting gallery photo 7">
-        </div>
-        <div class="tile img-slot">
+        </button>
+        <button type="button" class="tile img-slot" data-index="7">
           <span class="img-label">Image</span>
           <img src="images/gallery/8.jpg" alt="Lighting gallery photo 8">
-        </div>
-        <div class="tile img-slot">
+        </button>
+        <button type="button" class="tile img-slot" data-index="8">
           <span class="img-label">Image</span>
           <img src="images/gallery/9.jpg" alt="Lighting gallery photo 9">
-        </div>
-        <div class="tile img-slot">
+        </button>
+        <button type="button" class="tile img-slot" data-index="9">
           <span class="img-label">Image</span>
           <img src="images/gallery/10.jpg" alt="Lighting gallery photo 10">
-        </div>
-        <div class="tile img-slot">
+        </button>
+        <button type="button" class="tile img-slot" data-index="10">
           <span class="img-label">Image</span>
           <img src="images/gallery/11.jpg" alt="Lighting gallery photo 11">
-        </div>
-        <div class="tile img-slot">
+        </button>
+        <button type="button" class="tile img-slot" data-index="11">
           <span class="img-label">Image</span>
           <img src="images/gallery/12.jpg" alt="Lighting gallery photo 12">
-        </div>
-        <div class="tile img-slot">
+        </button>
+        <button type="button" class="tile img-slot" data-index="12">
           <span class="img-label">Image</span>
           <img src="images/gallery/13.jpg" alt="Lighting gallery photo 13">
-        </div>
-        <div class="tile img-slot">
+        </button>
+        <button type="button" class="tile img-slot" data-index="13">
           <span class="img-label">Image</span>
           <img src="images/gallery/14.jpg" alt="Lighting gallery photo 14">
-        </div>
-        <div class="tile img-slot">
+        </button>
+        <button type="button" class="tile img-slot" data-index="14">
           <span class="img-label">Image</span>
           <img src="images/gallery/15.jpg" alt="Lighting gallery photo 15">
-        </div>
+        </button>
       </div>
     </section>
+
+    <!-- ===== Lightbox =====
+         Opens when a gallery photo is clicked; closes on the cross,
+         a click outside the photo, or the Escape key. -->
+    <div class="lightbox" id="lightbox" hidden>
+      <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+      <img class="lightbox-image" id="lightbox-image" src="" alt="">
+    </div>
   </main>
 
   <script src="script.js"></script>
